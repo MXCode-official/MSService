@@ -8,6 +8,17 @@
     overflow-x: hidden;
 }
 
+section {
+    margin-bottom: 100px;
+}
+
+.name {
+    text-align: center;
+}
+
+
+/*HEAD*/
+
 .topheader {
     width: 100%;
     height: 100px;
@@ -66,6 +77,9 @@
     left: 0;
 }
 
+
+/*Start section*/
+
 .back {
     margin-top: 100px;
     object-fit: cover;
@@ -77,7 +91,7 @@
     position: relative;
 }
 
-.content {
+.banner .content {
     position: absolute;
     left: 5%;
     right: 5%;
@@ -100,7 +114,7 @@
     .phone {
         height: 550px;
     }
-    .content {
+    .main .content {
         top: 17%;
     }
     .banner .comment {
@@ -113,7 +127,7 @@
         height: 600px;
         padding-left: 100px;
     }
-    .content {
+    .main .content {
         top: 19%;
     }
     .banner .comment {
@@ -197,4 +211,134 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+}
+
+
+/*advantages section*/
+
+.advantages .col-sm {
+    margin-top: 25px;
+}
+
+.img-svg {
+    text-align: center;
+}
+
+.name-col {
+    text-align: center;
+}
+
+.content-col {
+    text-align: center;
+}
+
+.last-img {
+    margin-bottom: -28px;
+}
+
+
+/* About us section*/
+
+.about-us p {
+    margin-top: 35px;
+    font-size: 25px;
+    line-height: 27px;
+    color: #000000;
+}
+
+.color {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 82px;
+    color: #5F2EEA;
+}
+
+
+/* partner section */
+
+.partner .content {
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    margin-top: 50px;
+}
+
+.partner a {
+    text-decoration: none;
+}
+
+.partner p {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 59px;
+    text-align: center;
+    transition: text-shadow 1s;
+    color: transparent;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+.samsung:hover {
+    color: #034EA2;
+}
+
+.bosh:hover {
+    color: #ED1C24;
+}
+
+.siemens:hover {
+    color: #009999;
+}
+
+.zelmer:hover {
+    color: #012A7D;
+}
+
+.redmond:hover {
+    color: #ED1D25;
+}
+
+.ericsson:hover {
+    color: #002661;
+}
+
+.telefunken:hover {
+    color: #EC3429;
+}
+
+.panasonic:hover {
+    color: #0142C0;
+}
+
+.gagenau:hover,
+.sony:hover,
+.bbk:hover {
+    color: #000000;
+}
+
+.neef:hover {
+    color: #B60030;
+}
+
+.lg:hover {
+    color: #6B6B6B;
+}
+
+.samsung:hover,
+.bosh:hover,
+.siemens:hover,
+.zelmer:hover,
+.redmond:hover,
+.ericsson:hover,
+.telefunken:hover,
+.panasonic:hover,
+.gagenau:hover,
+.sony:hover,
+.bbk:hover,
+.neef:hover,
+.lg:hover {
+    text-shadow: none;
 }
