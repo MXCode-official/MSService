@@ -36,7 +36,8 @@ section {
 .burger {
     height: 32px;
     width: 50px;
-    margin-top: 50px;
+    margin-top: 32px;
+    cursor: pointer;
 }
 
 .burger span {
@@ -61,7 +62,7 @@ section {
 }
 
 .burger span::before {
-    top: -16px
+    top: 32px
 }
 
 .menu {
@@ -110,8 +111,9 @@ section {
     position: absolute;
     width: 34px;
     height: 32px;
-    left: 342px;
-    top: 50px;
+    left: 338px;
+    top: 36px;
+    cursor: pointer;
 }
 
 .krest {
@@ -120,6 +122,8 @@ section {
     width: 42px;
     transform: rotate(43deg);
     background-color: white;
+    top: 14px;
+    left: -4px;
 }
 
 .krest::after {
@@ -134,6 +138,19 @@ section {
 
 .account {
     margin-top: 26px;
+    cursor: pointer;
+}
+
+.login {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%, -10%);
+    height: 615px;
+    width: 548px;
+    background: linear-gradient(180deg, #7478FD 0%, #AF23F0 100%), #FFFFFF;
+    border-radius: 15px;
+    z-index: 2;
 }
 
 .border-line {
