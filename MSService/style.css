@@ -141,7 +141,7 @@ section {
     cursor: pointer;
 }
 
-.login {
+.account-login {
     position: absolute;
     left: 50%;
     top: 100%;
@@ -160,7 +160,6 @@ section {
     background-color: lightgrey;
     top: 100px;
     left: 0;
-    z-index: 0;
 }
 
 
@@ -653,5 +652,90 @@ footer .number {
     margin-top: 110px;
     left: 50%;
     transform: translate(-50%, 0);
+    color: white;
+}
+
+
+/* Account */
+
+.account-login .name {
+    color: white;
+    margin-top: 50px;
+}
+
+.login {
+    position: absolute;
+    width: calc(91% - 41px) !important;
+    left: 52.7%;
+    transform: translate(-50%, 0);
+    outline: 0;
+    border: 0;
+    background-color: transparent;
+    color: white;
+}
+
+.login::placeholder {
+    color: white;
+}
+
+.svg-nm {
+    position: absolute;
+    margin-top: 11px;
+    margin-left: 31.5px;
+}
+
+.border-ln-1 {
+    position: absolute;
+    width: 30px;
+    height: 1px;
+    margin-top: 38.5px;
+    margin-left: 30px;
+    background-color: #c9c3e0;
+}
+
+
+/**/
+
+.password {
+    position: absolute;
+    width: calc(91% - 41px) !important;
+    margin-top: 86px;
+    left: 52.7%;
+    transform: translate(-50%, 0);
+    outline: 0;
+    border: 0;
+    background-color: transparent;
+    color: white;
+}
+
+.password::placeholder {
+    color: white;
+}
+
+.svg-ps {
+    position: absolute;
+    margin-top: 97px;
+    margin-left: 31.5px;
+}
+
+.border-ln-2 {
+    position: absolute;
+    width: 30px;
+    height: 1px;
+    margin-top: 124.5px;
+    margin-left: 30px;
+    background-color: #c9c3e0;
+}
+
+.know-me {
+    position: absolute;
+    margin-top: 149.5px;
+    margin-left: 35px;
+}
+
+.know-me-txt {
+    position: absolute;
+    margin-top: 144px;
+    margin-left: 60px;
     color: white;
 }

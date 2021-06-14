@@ -1,18 +1,27 @@
+// Menu
 $(".burger").click(function() {
     $(".menu").addClass("active");
+    $('body').addClass('overflow-hidden');
 })
 
-$(document).on('mouseup', function(e) { // При нажатии на документ
-    let s = $('.menu'); // берём .block.-active
+$(document).on('mouseup', function(e) {
+    let s = $('.menu');
     if (!s.is(e.target) && s.has(e.target).length === 0) {
-        // Если нажат не он и не его дочернии И сам он существует
-        s.removeClass('active'); // То удаляем у него класс .active
+        s.removeClass('active');
+        $('body').removeClass('overflow-hidden');
+    } else {
+        $('body').addClass('overflow-hidden');
     }
 });
 
 $(".krst").click(function() {
     $(".menu").removeClass("active");
+    $('body').removeClass('overflow-hidden');
 })
+
+// END MENU
+
+// Obrat Svaz
 $(".list li").click(function() {
     $('#tech').val(this.innerText);
 });
@@ -22,20 +31,30 @@ $(".checkbox-ios-switch").click(function() {
     $(".em").toggleClass("d-none");
 })
 
+// End Obrat Svaz
+
+
+
+// Account
 $('.account').on('click', function() {
-    $(".login").removeClass('d-none');
+    $(".account-login").removeClass('d-none');
+    $('body').addClass('overflow-hidden');
 });
 
-$(document).on('mouseup', function(e) { // При нажатии на документ
-    let s = $('.login'); // берём .block.-active
+$(document).on('mouseup', function(e) {
+    let s = $('.account-login');
     if (!s.is(e.target) && s.has(e.target).length === 0) {
-        // Если нажат не он и не его дочернии И сам он существует
-        s.addClass('d-none'); // То удаляем у него класс .active
+        s.addClass('d-none');
+        $('body').removeClass('overflow-hidden');
+    } else {
+        $('body').addClass('overflow-hidden');
     }
 });
 
-// animate scroll
+// End Account
 
+
+// animate scroll
 $(".menu").on("click", "li", function(event) {
     event.preventDefault();
     var id = $(this).attr('href'),
