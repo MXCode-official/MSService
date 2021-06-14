@@ -39,9 +39,17 @@
                 <div class="account">
                     <img class="img" src="images/user.svg" alt="">
                 </div>
-                <div class="account-login d-none">
-                    <h1 class="name">Вход</h1>
+                <form method="POST" class="account-login d-none">
+                    <h1 class="name">Войти</h1>
                     <div class="textinput">
+                        <div class="row d-none">
+                            <div class="col-md-6">
+                                <input class="name-polz" type="text" name="name" placeholder="Имя">
+                            </div>
+                            <div class="col-md-6">
+                                <input class="surname" type="text" name="surname" placeholder="Фамилия">
+                            </div>
+                        </div>
                         <div class="nm">
                             <img class="svg-nm" src="images/user-white.svg" alt="">
                             <span class="border-ln-1"></span>
@@ -55,7 +63,12 @@
                     </div>
                     <input class="know-me" type="checkbox">
                     <p class="know-me-txt">Запомнить меня</p>
-                </div>
+                    <a class="log-in">
+                        <p>Войти</p>
+                    </a>
+                    <p class="forgot">Забыли пароль?</p>
+                    <p class="sign_up">Новый пользователь</p>
+                </form>
                 <span class="border-line"></span>
             </div>
         </div>
@@ -188,9 +201,9 @@
                     </label>
                     <p>по email</p>
                 </div>
-                <div class="row ">
-                    <div class="col-md-12 ">
-                        <form method="POST " id="send_form ">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form method="POST" id="send_form">
                             <div class="row ">
                                 <div class="col-md-6 textinput first ">
                                     <p>Имя<span>*</span></p>

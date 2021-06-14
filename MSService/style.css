@@ -656,6 +656,39 @@ footer .number {
 }
 
 
+/*Name surname*/
+
+.account-login .row {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 30px;
+}
+
+.name-polz {
+    width: 100% !important;
+    outline: 0;
+    border: 0;
+    background-color: transparent;
+    color: white;
+}
+
+.name-polz::placeholder {
+    color: white;
+}
+
+.surname {
+    width: 100% !important;
+    outline: 0;
+    border: 0;
+    background-color: transparent;
+    color: white;
+}
+
+.surname::placeholder {
+    color: white;
+}
+
+
 /* Account */
 
 .account-login .name {
@@ -664,9 +697,8 @@ footer .number {
 }
 
 .login {
-    position: absolute;
     width: calc(91% - 41px) !important;
-    left: 52.7%;
+    margin-left: 52.7%;
     transform: translate(-50%, 0);
     outline: 0;
     border: 0;
@@ -697,10 +729,9 @@ footer .number {
 /**/
 
 .password {
-    position: absolute;
     width: calc(91% - 41px) !important;
-    margin-top: 86px;
-    left: 52.7%;
+    margin-top: 30px;
+    margin-left: 52.7%;
     transform: translate(-50%, 0);
     outline: 0;
     border: 0;
@@ -714,7 +745,7 @@ footer .number {
 
 .svg-ps {
     position: absolute;
-    margin-top: 97px;
+    margin-top: 41px;
     margin-left: 31.5px;
 }
 
@@ -722,20 +753,58 @@ footer .number {
     position: absolute;
     width: 30px;
     height: 1px;
-    margin-top: 124.5px;
+    margin-top: 68.5px;
     margin-left: 30px;
     background-color: #c9c3e0;
 }
 
 .know-me {
-    position: absolute;
-    margin-top: 149.5px;
     margin-left: 35px;
 }
 
 .know-me-txt {
-    position: absolute;
-    margin-top: 144px;
+    margin-top: -25px;
     margin-left: 60px;
     color: white;
+}
+
+.log-in {
+    display: flex;
+    width: 184px;
+    height: 46px;
+    border-radius: 25px;
+    background-color: white;
+    margin-top: 30px;
+    margin-left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.log-in p {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-style: normal;
+    font-weight: 620;
+    font-size: 20px;
+    text-align: center;
+    color: #000000;
+}
+
+.forgot {
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    transform: translate(-50%, 0);
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.sign_up {
+    position: absolute;
+    left: 50%;
+    bottom: 3px;
+    transform: translate(-50%, 0);
+    color: #FFFFFF;
+    cursor: pointer;
 }

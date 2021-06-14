@@ -82,3 +82,17 @@ $("footer").on("click", "a", function(event) {
         top = $(id).offset().top;
     $('body,html').animate({ scrollTop: top }, 1000);
 });
+
+// Login
+
+$(".sign_up").click(function() {
+    if ($(".account-login .name").text() == 'Войти') {
+        $(".account-login .name").text('Авторизоваться');
+    } else {
+        $(".account-login .name").text('Войти');
+    }
+
+    $(".account-login .row").toggleClass("d-none")
+})
+
+//tr65
