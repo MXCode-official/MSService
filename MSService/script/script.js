@@ -55,28 +55,28 @@ $(document).on('mouseup', function(e) {
 
 
 // animate scroll
-$(".menu").on("click", "li", function(event) {
+$(".menu ul").on("click", "li", function(event) {
     event.preventDefault();
     var id = $(this).attr('href'),
         top = $(id).offset().top;
     $('body,html').animate({ scrollTop: top }, 1000);
 });
 
-$(".content").on("click", "a", function(event) {
+$(".content .ostav").on("click", "a", function(event) {
     event.preventDefault();
     var id = $(this).attr('href'),
         top = $(id).offset().top;
     $('body,html').animate({ scrollTop: top }, 1000);
 });
 
-$(".head").on("click", "a", function(event) {
+$(".head .logo").on("click", "a", function(event) {
     event.preventDefault();
     var id = $(this).attr('href'),
         top = $(id).offset().top;
     $('body,html').animate({ scrollTop: top }, 1000);
 });
 
-$("footer").on("click", "a", function(event) {
+$("footer .img-footer").on("click", "a", function(event) {
     event.preventDefault();
     var id = $(this).attr('href'),
         top = $(id).offset().top;
@@ -95,4 +95,38 @@ $(".sign_up").click(function() {
     $(".account-login .row").toggleClass("d-none")
 })
 
-//tr65
+// php
+
+$(document).ready(function() {
+    $(".log-in").on("click", function() {
+        if (($('.login').val() != '' && $('.password').val() != '') && ($(".account-login .row").attr('class').split(' ').length == 2)) {
+            console.log(1);
+            fetch('php/login.php', {
+                method: 'POST', //Метод отправки
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: $("#login_form").serialize(), //Получение данных
+            });
+        } else if (($('.login').val() != '' && $('.password').val() != '') && ($(".account-login .row").attr('class').split(' ').length == 1)) {
+            console.log(2);
+            fetch('php/sign_up.php', {
+                method: 'POST', //Метод отправки
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: $("#login_form").serialize(), //Получение данных
+            });
+        }
+    });
+});
+$(".user").on("click", function() {
+    $(".menu-user").toggleClass("d-none");
+})
+
+$(document).on('mouseup', function(e) {
+    let s = $('.menu-user');
+    if (!s.is(e.target) && s.has(e.target).length === 0) {
+        s.addClass('d-none');
+    }
+});
