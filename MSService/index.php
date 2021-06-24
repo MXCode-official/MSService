@@ -12,7 +12,6 @@
     <title>MSService</title>
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/icon-font.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -44,54 +43,74 @@
                 <?php
                 if (isset($_SESSION['entered']) && $_SESSION['entered'] == "OK"){
                     ?>
+                    <div class="usr">
                         <div class="user">
-                        <div class="row">
-                            <p class="user-name"><?=$_SESSION['name']?></p>
-                            <img class="user-img" src="images/img.png" alt="">
+                        <?php
+                            if ($_SESSION["img"] != NULL){
+                        ?>
+                            <div class="row">
+                                <p class="user-name"><?=$_SESSION['name']?></p>
+                                    <?php echo '<img class="user-img" src="data:image/jpg;base64,' . base64_encode($_SESSION["img"]) . '" />'; ?>
+                            </div>
+                            <?php 
+                                } else{
+                                    ?>
+                                    <p class="user-name"><?=$_SESSION['name']?></p>
+                                    <?php
+                                }
+                            ?>
                         </div>
-                    </div>
 
-                    <div class="menu-user d-none">
-                        <ul>
-                            <li class="out">Выйти</li>
-                        </ul>
+                        <div class="menu-user d-none">
+                            <ul>
+                                <li><a href="account/account.php">Профиль</a></li>
+                                <li>Заказы</li>
+                                <li>Финансы</li>
+                                <li>Помощь</li>
+                                <li>
+                                    <p></p>
+                                    <p class="log-out">Выйти</p>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                     <?php
                 } else{
                     ?>
                     <div class="account">
-                           <img class="img" src="images/user.svg" alt="">
-                        </div>
-                        <form method="post" class="account-login d-none" id="login_form">
-                            <h1 class="name">Войти</h1>
-                            <div class="textinput">
-                                <div class="row d-none">
-                                    <div class="col-md-6">
-                                        <input class="name-polz" type="text" name="name" placeholder="Имя">
-                                    </div>                                        
-                                    <div class="col-md-6">
-                                        <input class="surname" type="text" name="surname" placeholder="Фамилия">
-                                    </div>
-                                </div>
-                                <div class="nm">
-                                    <img class="svg-nm" src="images/user-white.svg" alt="">
-                                    <span class="border-ln-1"></span>
-                                    <input class="login" type="text" name="login" placeholder="Имя пользователя">
-                                </div>
-                                <div class="ps">
-                                    <img class="svg-ps" src="images/lock.svg" alt="">
-                                    <span class="border-ln-2"></span>
-                                    <input class="password" type="text" name="password" placeholder="Пароль">
+                        <img class="img" src="images/user.svg" alt="">
+                    </div>
+                    <form method="POST" class="account-login d-none" id="login_form">
+                        <h1 class="name">Войти</h1>
+                        <div class="textinput">
+                            <div class="row d-none">
+                                <div class="col-md-6">
+                                    <input class="name-polz" type="text" name="name" placeholder="Имя">
+                                </div>                                        
+                                <div class="col-md-6">
+                                    <input class="surname" type="text" name="surname" placeholder="Фамилия">
                                 </div>
                             </div>
-                            <input class="know-me" type="checkbox">
-                            <p class="know-me-txt">Запомнить меня</p>
-                            <button type="submit" class="log-in">
-                                <p>Войти</p>
-                            </button>
-                            <p class="forgot">Забыли пароль?</p>
-                            <p class="sign_up">Новый пользователь</p>
-                        </form>
+                            <div class="nm">
+                                <img class="svg-nm" src="images/user-white.svg" alt="">
+                                <span class="border-ln-1"></span>
+                                <input class="login" type="text" name="login" placeholder="Имя пользователя">
+                            </div>
+                            <div class="ps">
+                                <img class="svg-ps" src="images/lock.svg" alt="">
+                                <span class="border-ln-2"></span>
+                                <input class="password" type="text" name="password" placeholder="Пароль">
+                             </div>
+                        </div>
+                        <p class="warning text-danger"></p>
+                        <input class="know-me" type="checkbox">
+                        <p class="know-me-txt">Запомнить меня</p>
+                        <button type="submit" class="log-in" onclick="return false;">
+                            <p>Войти</p>
+                        </button>
+                        <p class="forgot">Забыли пароль?</p>
+                        <p class="sign_up">Новый пользователь</p>
+                    </form>
                     <?php
                 }
                 ?>
@@ -103,11 +122,11 @@
     <main class="main">
         <section class="banner" id="bunner">
             <div class=" container">
-                <img class="back" src="images/backimg.png" alt="">
+                <img class="back" src="images/backimg.webp" alt="">
                 <div class="content">
                     <div class="top">
                         <p class="text">Ремонт любой бытовой техники в Ульяновске</p>
-                        <img class="phone" src="images/iphone12pro.png" alt="">
+                        <img class="phone" src="images/iphone12pro.webp" alt="">
                     </div>
 
                     <p class="comment">ТРАЛЯЛЯ</p>
@@ -283,7 +302,6 @@
     </footer>
 
     <script src="script/jquery-2.1.1.js"></script>
-    <script src="script/bootstrap.min.js"></script>
     <script src="script/script.js"></script>
 </body>
 

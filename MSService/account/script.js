@@ -21,19 +21,6 @@ $(".krst").click(function() {
 
 // END MENU
 
-// Obrat Svaz
-$(".list li").click(function() {
-    $('#tech').val(this.innerText);
-});
-
-$(".checkbox-ios-switch").click(function() {
-    $(".ph").toggleClass("d-none");
-    $(".em").toggleClass("d-none");
-})
-
-// End Obrat Svaz
-
-
 
 // Account
 $('.account').on('click', function() {
@@ -52,36 +39,6 @@ $(document).on('mouseup', function(e) {
 });
 
 // End Account
-
-
-// animate scroll
-$(".menu ul").on("click", "li", function(event) {
-    event.preventDefault();
-    var id = $(this).attr('href'),
-        top = $(id).offset().top;
-    $('body,html').animate({ scrollTop: top }, 1000);
-});
-
-$(".content .ostav").on("click", "a", function(event) {
-    event.preventDefault();
-    var id = $(this).attr('href'),
-        top = $(id).offset().top;
-    $('body,html').animate({ scrollTop: top }, 1000);
-});
-
-$(".head .logo").on("click", "a", function(event) {
-    event.preventDefault();
-    var id = $(this).attr('href'),
-        top = $(id).offset().top;
-    $('body,html').animate({ scrollTop: top }, 1000);
-});
-
-$("footer .img-footer").on("click", "a", function(event) {
-    event.preventDefault();
-    var id = $(this).attr('href'),
-        top = $(id).offset().top;
-    $('body,html').animate({ scrollTop: top }, 1000);
-});
 
 // Login
 
@@ -126,6 +83,7 @@ $(document).ready(function() {
         }
     });
 });
+
 $(".user").on("click", function() {
     $(".menu-user").toggleClass("d-none");
 })
