@@ -84,12 +84,12 @@ $(document).ready(function() {
     });
 });
 
-$(".user").on("click", function() {
-    $(".menu-user").toggleClass("d-none");
+$(".add-img").on("click", function() {
+    $(".img-screen").toggleClass("d-none");
 })
 
 $(document).on('mouseup', function(e) {
-    let s = $('.menu-user');
+    let s = $('.img-screen');
     if (!s.is(e.target) && s.has(e.target).length === 0) {
         s.addClass('d-none');
     }

@@ -11,7 +11,7 @@
     $user_password = trim(urldecode(htmlspecialchars($_POST["password"])));
 
 
-    $result = mysqli_query($conn, "SELECT id, name, surname, login, password, status, image FROM users WHERE login='".$login."'");
+    $result = mysqli_query($conn, "SELECT id, name, surname, login, password, status, image, email, phone FROM users WHERE login='".$login."'");
     $row = mysqli_fetch_array($result);
     if($row[4] == $user_password){
         $_SESSION["entered"] = "OK";
@@ -21,6 +21,8 @@
         $_SESSION["login"] = $row[3];
         $_SESSION["status"] = $row[5];
         $_SESSION["img"] = $row[6];
+        $_SESSION["email"] = $row[7];
+        $_SESSION["phone"] = $row[8];
     }else{
         $_SESSION["entered"] = "ERROR";
     };

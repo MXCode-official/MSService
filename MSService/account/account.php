@@ -116,23 +116,24 @@
             </div>
         </div>
     </div>
-
     <section class="main_inf">
         <div class="container">
             <div class="row content">
-                <div class="col-lg-3 image">
+                
+                <div class="col-lg-4 image">
                     <?php
                         if ($_SESSION["img"] != NULL){
-                            echo '<img style="width: 250px; height: 250px" src="data:image/jpg;base64,' . base64_encode($_SESSION["img"]) . '" />';
+                            echo '<img class="account-img" style="width: 250px; height: 250px" src="data:image/jpg;base64,' . base64_encode($_SESSION["img"]) . '" />';
                         } else{
                             echo '<p class="no-img">?</p>';
                         }
                         ?>
+                        <a class="add-img" href="#">Изменить фото</a>
                         <?php
                     ?>
                 </div>
 
-                <div class="col-lg-9 information">
+                <div class="col-lg-8 information">
                     <div class="name">
                         <h1><?=$_SESSION["name"]?></h1>
                         <h2><?=$_SESSION["surname"]?></h2>
@@ -142,12 +143,12 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <h3>Email</h3>
-                                <p>remontholodilnikov@superemail.rem</p>
+                                <p><?=$_SESSION["email"]?></p>
                                 <a href="#">Изменить почту</a>
                             </div>
                             <div class="col-md-6">
                                 <h3>Phone</h3>
-                                <p>+78005552021</p>
+                                <p><?=$_SESSION["phone"]?></p>
                                 <a href="#">Изменить телефон</a>
                             </div>
                         </div>
@@ -162,6 +163,16 @@
 
         </div>
     </section>
+
+
+   <div class="windows">
+        <div class="img-screen d-none">
+            <form method="POST" action="change_inf.php" enctype="multipart/form-data">
+                <input type="file" name="image">
+                <input type="submit" name="submit_image" value="Upload">
+            </form>
+        </div>
+    </div>
 
     <script src="../script/jquery-2.1.1.js"></script>
     <script src="script.js"></script>

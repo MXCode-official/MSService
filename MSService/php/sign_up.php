@@ -21,4 +21,7 @@
     $_SESSION["surname"] = $surname;
     $_SESSION["login"] = $login;
     $_SESSION["status"] = "client";
+    $_SESSION["img"] = NULL;
+    $_SESSION["email"] = NULL;
+    $_SESSION["phone"] = NULL;
 ?>
