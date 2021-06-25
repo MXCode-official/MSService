@@ -8,9 +8,10 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>MSService</title>
 
+    <link rel="shortcut icon" href="/images/logo.svg">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -148,7 +149,7 @@
                             <p class="content-col">Заказываем и используем только оффициальные запчасти от производителей</p>
                         </div>
                         <div class="col-sm">
-                            <p class="img-svg"><img src="images/fast.svg" alt=""></p>
+                            <p class="img-svg"><img class="fast" src="images/fast.svg" alt=""></p>
                             <h1 class="name-col">Быстро</h1>
                             <p class="content-col">При мелких поломках ремонтируем вашу технику при вас</p>
                         </div>

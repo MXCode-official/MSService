@@ -25,7 +25,7 @@ section {
     z-index: 99999;
     position: fixed;
     background: white;
-    transition: 0.3s;
+    color: #c9d1d9;
 }
 
 .head {
@@ -155,7 +155,7 @@ section {
     transform: translate(-50%, -50%);
     height: 615px;
     width: 548px;
-    background: linear-gradient(180deg, #7478FD 0%, #AF23F0 100%), #FFFFFF;
+    background: url(images/Frame1.png);
     border-radius: 15px;
     z-index: 2;
 }
@@ -379,54 +379,53 @@ section {
     font-weight: bold;
     line-height: 59px;
     text-align: center;
-    transition: text-shadow 1s;
-    color: gray;
-    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    filter: grayscale(40%);
+    transition: all .3s;
 }
 
-.samsung:hover {
+.samsung {
     color: #034EA2;
 }
 
-.bosh:hover {
+.bosh {
     color: #ED1C24;
 }
 
-.siemens:hover {
+.siemens {
     color: #009999;
 }
 
-.zelmer:hover {
+.zelmer {
     color: #012A7D;
 }
 
-.redmond:hover {
+.redmond {
     color: #ED1D25;
 }
 
-.ericsson:hover {
+.ericsson {
     color: #002661;
 }
 
-.telefunken:hover {
+.telefunken {
     color: #EC3429;
 }
 
-.panasonic:hover {
+.panasonic {
     color: #0142C0;
 }
 
-.gagenau:hover,
-.sony:hover,
-.bbk:hover {
+.gagenau,
+.sony,
+.bbk {
     color: #000000;
 }
 
-.neef:hover {
+.neef {
     color: #B60030;
 }
 
-.lg:hover {
+.lg {
     color: #6B6B6B;
 }
 
@@ -443,7 +442,8 @@ section {
 .bbk:hover,
 .neef:hover,
 .lg:hover {
-    text-shadow: none;
+    filter: grayscale(0%);
+    transform: scale(1.1);
 }
 
 
