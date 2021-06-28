@@ -62,21 +62,21 @@ $(".menu ul").on("click", "li", function(event) {
     $('body,html').animate({ scrollTop: top }, 1000);
 });
 
-$(".content .ostav").on("click", "a", function(event) {
+$(".banner .content").on("click", "a", function(event) {
     event.preventDefault();
     var id = $(this).attr('href'),
         top = $(id).offset().top;
     $('body,html').animate({ scrollTop: top }, 1000);
 });
 
-$(".head .logo").on("click", "a", function(event) {
+$(".head a").on("click", "img", function(event) {
     event.preventDefault();
     var id = $(this).attr('href'),
         top = $(id).offset().top;
     $('body,html').animate({ scrollTop: top }, 1000);
 });
 
-$("footer .img-footer").on("click", "a", function(event) {
+$("footer").on("click", "a", function(event) {
     event.preventDefault();
     var id = $(this).attr('href'),
         top = $(id).offset().top;
@@ -145,3 +145,67 @@ $(".log-out").click(function() {
         },
     }).then(location.reload());
 })
+
+
+// animation
+
+const observer = new IntersectionObserver(entries => {
+    // перебор записей
+    entries.forEach(entry => {
+        // если элемент появился
+        if (entry.isIntersecting) {
+            // добавить ему CSS-класс
+            entry.target.classList.add('animation');
+            setTimeout(function() {
+                entry.target.style.opacity = 1;
+            }, 1000);
+        }
+    });
+});
+
+const el = document.querySelectorAll('.col-sm');
+
+el.forEach(function(item, i) {
+    observer.observe(item);
+})
+
+VanillaTilt.init(document.querySelectorAll(".col-sm"), {
+    max: 30,
+    speed: 400,
+    glare: true,
+    "max-glare": 0.3
+});
+
+//It also supports NodeList
+VanillaTilt.init(document.querySelectorAll(".col-sm"));
+
+// topheader
+if (window.pageYOffset > 0) {
+    $(".topheader")[0].style.background = "white";
+    $(".burger-white").addClass("d-none");
+    $(".burger-black").removeClass("d-none");
+    $(".logo")[0].src = "images/logo.svg"
+    $(".img")[0].src = "images/user.svg"
+} else {
+    $(".topheader")[0].style.background = "";
+    $(".burger-white").removeClass("d-none");
+    $(".burger-black").addClass("d-none");
+    $(".logo")[0].src = "images/logo_white.svg"
+    $(".img")[0].src = "images/user-white.svg"
+}
+
+window.onscroll = function() {
+    if (window.pageYOffset > 0) {
+        $(".topheader")[0].style.background = "white";
+        $(".burger-white").addClass("d-none");
+        $(".burger-black").removeClass("d-none");
+        $(".logo")[0].src = "images/logo.svg"
+        $(".img")[0].src = "images/user.svg"
+    } else {
+        $(".topheader")[0].style.background = "";
+        $(".burger-white").removeClass("d-none");
+        $(".burger-black").addClass("d-none");
+        $(".logo")[0].src = "images/logo_white.svg"
+        $(".img")[0].src = "images/user-white.svg"
+    }
+};

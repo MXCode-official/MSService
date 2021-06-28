@@ -1,5 +1,13 @@
 <?php
+    session_save_path();
     session_start();
+    error_reporting(0);
+    ini_set('session.use_cookies', 'On');
+    ini_set('session.use_trans_sid', 'Off');
+    ini_set('session.gc_maxlifetime',7200);
+    ini_set('session.cookie_lifetime',7200);
+    session_set_cookie_params(7200, '/');
+    
     $servername = "localhost";
     $username = "id14476277_maximka";
     $password_dbase = "22fkS^tDU]RD=Pe_";
@@ -9,7 +17,6 @@
 
     $login = trim(urldecode(htmlspecialchars($_POST["login"])));
     $user_password = trim(urldecode(htmlspecialchars($_POST["password"])));
-
 
     $result = mysqli_query($conn, "SELECT id, name, surname, login, password, status, image, email, phone FROM users WHERE login='".$login."'");
     $row = mysqli_fetch_array($result);

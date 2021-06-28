@@ -1,4 +1,5 @@
 <?php
+    session_save_path();
     session_start();
 ?>
 
@@ -167,8 +168,9 @@
 
    <div class="windows">
         <div class="img-screen d-none">
-            <form method="POST" action="change_inf.php" enctype="multipart/form-data">
-                <input type="file" name="image">
+            <form class="change-img" method="POST" action="change_inf.php" enctype="multipart/form-data">
+                <img class="img" src="../images/cloud-download.svg" alt="">
+                <input class="upload" type="file" name="image" hidden>
                 <input type="submit" name="submit_image" value="Upload">
             </form>
         </div>

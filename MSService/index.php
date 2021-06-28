@@ -1,5 +1,13 @@
 <?php
+    session_save_path();
     session_start();
+
+    error_reporting(0);
+    ini_set('session.use_cookies', 'On');
+    ini_set('session.use_trans_sid', 'Off');
+    ini_set('session.gc_maxlifetime',7200);
+    ini_set('session.cookie_lifetime',7200);
+    session_set_cookie_params(7200, '/');
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +29,8 @@
         <div class="container">
             <div class="head">
                 <div class="burger">
-                    <span></span>
+                    <span class="burger-white"></span>
+                    <span class="burger-black d-none"></span>
                 </div>
                 <div class="menu">
                     <div class="krst">
@@ -37,8 +46,8 @@
                         <li href="#office">Наш офис</li>
                     </ul>
                 </div>
-                <a class="logo" href="#bunner">
-                    <img class="logo" src="images/logo.svg" alt="">
+                <a>
+                    <img class="logo" src="images/logo_white.svg" href="#bunner">
                 </a>
 
                 <?php
@@ -79,7 +88,7 @@
                 } else{
                     ?>
                     <div class="account">
-                        <img class="img" src="images/user.svg" alt="">
+                        <img style="width: 47px" class="img" src="images/user-white.svg" alt="">
                     </div>
                     <form method="POST" class="account-login d-none" id="login_form">
                         <h1 class="name">Войти</h1>
@@ -121,21 +130,40 @@
     </div>
 
     <main class="main">
-        <section class="banner" id="bunner">
-            <div class=" container">
-                <img class="back" src="images/backimg.webp" alt="">
+        <section class="banner full-screen" id="bunner" style="background: url('images/backimg.webp'); background-size: cover">
+            <div class="container">
                 <div class="content">
-                    <div class="top">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="text">Ремонт любой бытовой техники в Ульяновске</p>
+                            <p class="comment">ТРАЛЯЛЯ</p>
+                            <a class="ostav" href="#obrat-svaz">
+                                <p>ОСТАВИТЬ ЗАЯВКУ НА РЕМОНТ</p>
+                            </a>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="text">Ремонт любой бытовой техники в Ульяновске</p>
+                            <p class="comment">ТРАЛЯЛЯ</p>
+                            <a class="ostav" href="#obrat-svaz">
+                                <p>ОСТАВИТЬ ЗАЯВКУ НА РЕМОНТ</p>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <img class="phone" src="images/iphone12pro.webp" alt="">
+                        </div>
+                    </div>
+
+                    <!-- <div class="top">
                         <p class="text">Ремонт любой бытовой техники в Ульяновске</p>
                         <img class="phone" src="images/iphone12pro.webp" alt="">
                     </div>
-
                     <p class="comment">ТРАЛЯЛЯ</p>
                     <a class="ostav" href="#obrat-svaz">
                         <p>ОСТАВИТЬ ЗАЯВКУ НА РЕМОНТ</p>
-                    </a>
+                    </a> -->
                 </div>
             </div>
+            
         </section>
 
         <section class="advantages" id="advantages">
@@ -303,6 +331,7 @@
     </footer>
 
     <script src="script/jquery-2.1.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
     <script src="script/script.js"></script>
 </body>
 

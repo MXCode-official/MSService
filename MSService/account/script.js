@@ -103,3 +103,7 @@ $(".log-out").click(function() {
         },
     }).then(location.reload());
 })
+
+$(".img").on("click", function() {
+    $(".upload").click();
+})

@@ -24,8 +24,8 @@ section {
     height: 100px;
     z-index: 99999;
     position: fixed;
-    background: white;
     color: #c9d1d9;
+    transition: background .3s;
 }
 
 .head {
@@ -47,28 +47,47 @@ section {
     cursor: pointer;
 }
 
-.burger span {
+.burger-white {
+    position: absolute;
+    height: 4px;
+    width: 50px;
+    background-color: white;
+}
+
+.burger-black {
     position: absolute;
     height: 4px;
     width: 50px;
     background-color: black;
 }
 
-.burger span::after,
-.burger span::before {
+.burger-white::after,
+.burger-white::before {
     position: absolute;
     content: '';
     height: 4px;
     width: 50px;
-    background-color: black;
     transition: transform .3s, top .3s;
+    background-color: white;
 }
 
-.burger span::after {
+.burger-black::after,
+.burger-black::before {
+    position: absolute;
+    content: '';
+    height: 4px;
+    width: 50px;
+    transition: transform .3s, top .3s;
+    background-color: black;
+}
+
+.burger-white::after,
+.burger-black::after {
     top: 16px;
 }
 
-.burger span::before {
+.burger-white::before,
+.burger-black::before {
     top: 32px
 }
 
@@ -172,6 +191,11 @@ section {
 
 /*Start section*/
 
+.banner {
+    width: 100%;
+    height: 100vh;
+}
+
 .back {
     margin-top: 100px;
     object-fit: cover;
@@ -179,16 +203,12 @@ section {
     height: 95vh;
 }
 
-.banner>.container {
-    position: relative;
+.banner .container {
+    padding: 130px 0;
 }
 
-.banner .content {
-    position: absolute;
-    left: 5%;
-    right: 5%;
-    bottom: 58.02%;
-    height: 100%;
+.banner .col-md-12 {
+    display: none;
 }
 
 .content .top {
@@ -199,52 +219,84 @@ section {
 .banner .text {
     font-style: normal;
     font-weight: bold;
-    color: #000000;
+    color: white;
+}
+
+.banner .text {
+    font-size: 45px;
+    line-height: 70px;
+}
+
+@media (min-width: 1650px) and (min-height: 850px) {
+    .banner {
+        padding: 20px 0;
+    }
+    .phone {
+        height: 700px !important;
+    }
+    .banner .text {
+        font-size: 55px;
+    }
+    .banner .comment {
+        font-size: 35px !important;
+    }
+    .ostav {
+        top: 500px !important;
+        width: 520px !important;
+    }
 }
 
 @media (max-width: 1400px) {
     .phone {
         height: 550px;
     }
-    .main .content {
-        top: 12%;
+    .ostav {
+        top: 400px;
     }
-    .banner .comment {
-        top: 270px;
+}
+
+@media (max-width: 1300px) {
+    .phone {
+        margin-left: -70px;
     }
 }
 
 @media (min-width: 1400px) {
     .phone {
         height: 600px;
-        padding-left: 100px;
     }
-    .main .content {
-        top: 19%;
-    }
-    .banner .comment {
-        top: 270px;
+    .ostav {
+        top: 450px;
     }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
+    .banner .col-md-12 {
+        display: block;
+    }
+    .banner .col-md-8 {
+        display: none;
+    }
     .phone {
         display: none;
     }
-}
-
-@media (min-width: 1000px) {
-    .phone {
-        padding-left: 100px;
-    }
     .banner .text {
+        margin-left: calc(20% / 2);
+        margin-right: calc(20% / 2);
         font-size: 45px;
         line-height: 70px;
     }
+    .banner .comment {
+        margin-left: calc(20% / 2);
+        margin-right: calc(20% / 2);
+    }
     .ostav {
-        width: 480px;
-        height: 80px;
-        top: 450px;
+        width: 80% !important;
+        height: 65px;
+        top: 470px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        margin-top: 20px;
     }
     .ostav p {
         font-size: 24px;
@@ -253,51 +305,55 @@ section {
     }
 }
 
-@media (max-width: 1000px) {
-    .banner .text {
-        position: absolute;
-        left: calc(10% / 2);
-        font-size: 43px;
-        line-height: 50px;
+@media (max-height: 700px) {
+    .ostav {
+        margin-top: 20px;
+        top: auto;
+    }
+    .banner .container {
+        padding: 100px 0;
     }
     .banner .comment {
-        position: absolute;
-        left: calc(10% / 2);
-        top: 230px;
+        padding-top: 0 !important;
     }
-    .ostav {
-        width: 90%;
-        height: 65px;
-        top: 350px;
-        left: 50%;
-        transform: translate(-50%, 0);
-    }
-    .ostav p {
-        font-size: 16px;
-        line-height: 23px;
-        text-align: center;
+}
+
+@media (max-height: 600px) {
+    .banner .text {
+        line-height: 55px;
     }
 }
 
 .banner .comment {
-    position: absolute;
     font-style: normal;
     font-weight: normal;
     font-size: 30px;
     line-height: 46px;
     padding-top: 30px;
     /* identical to box height */
-    color: #000000;
+    color: white;
 }
 
 .ostav {
     position: absolute;
-    background-color: #5F2EEA;
+    display: flex;
+    width: 480px;
+    height: 80px;
     border-radius: 10px;
+    background: #5F2EEA;
+    border: 3px solid #5F2EEA;
+    transition: 0.5s;
+}
+
+.ostav:hover {
+    background: whitesmoke;
 }
 
 .ostav p {
     position: absolute;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
     color: white;
     width: 100%;
     left: 50%;
@@ -305,11 +361,46 @@ section {
     transform: translate(-50%, -50%);
 }
 
+.ostav:hover p {
+    color: #5F2EEA;
+}
+
 
 /*advantages section*/
 
 .advantages .col-sm {
+    position: relative;
     margin-top: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 45px rgb(0 0 0 / 10%);
+    border-radius: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+    transition: all .2s;
+    opacity: 0;
+}
+
+.animation:nth-child(1) {
+    animation: showLeft 1s ease-in-out 1s;
+}
+
+.animation:nth-child(2) {
+    animation: showLeft 1s ease-in-out .5s;
+}
+
+.animation:nth-child(3) {
+    animation: showLeft 1s ease-in-out;
+}
+
+@keyframes showLeft {
+    from {
+        left: -100%;
+        opacity: 1;
+    }
+    to {
+        left: 0;
+        opacity: 1;
+    }
 }
 
 .img-svg {
@@ -352,9 +443,6 @@ section {
 .partner .content {
     display: flex;
     justify-content: center;
-}
-
-.content {
     margin-top: 50px;
 }
 
