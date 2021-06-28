@@ -152,15 +152,6 @@
                             <img class="phone" src="images/iphone12pro.webp" alt="">
                         </div>
                     </div>
-
-                    <!-- <div class="top">
-                        <p class="text">Ремонт любой бытовой техники в Ульяновске</p>
-                        <img class="phone" src="images/iphone12pro.webp" alt="">
-                    </div>
-                    <p class="comment">ТРАЛЯЛЯ</p>
-                    <a class="ostav" href="#obrat-svaz">
-                        <p>ОСТАВИТЬ ЗАЯВКУ НА РЕМОНТ</p>
-                    </a> -->
                 </div>
             </div>
             
@@ -196,12 +187,12 @@
                 <h1 class="name">Мы в цифрах</h1>
                 <div class="row">
                     <div class="col-md-6">
-                        <p><span class="color">21</span><br>год работы</p>
-                        <p><span class="color">10 000 единиц</span><br>отремонтированной бытовой техники</p>
+                        <p><span class="color-number">21</span><br>год работы</p>
+                        <p><span class="color-number">10000</span><span class="color"> единиц</span><br>отремонтированной бытовой техники</p>
                     </div>
                     <div class="col-md-6">
-                        <p><span class="color">1700+</span><br>довольных клиентов</p>
-                        <p><span class="color">12</span><br>месяцев гарантии на выполненую раюботу</p>
+                        <p><span class="color-number">1700</span><span class="color">+</span><br>довольных клиентов</p>
+                        <p><span class="color-number">12</span><br>месяцев гарантии на выполненую раюботу</p>
                     </div>
                 </div>
             </div>

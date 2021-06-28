@@ -429,6 +429,14 @@ section {
     color: #000000;
 }
 
+.color-number {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 82px;
+    color: #5F2EEA;
+}
+
 .color {
     font-style: normal;
     font-weight: bold;
@@ -462,13 +470,18 @@ section {
     }
 }
 
+.load-partner {
+    transform: scale(1) !important;
+    transition: all 1s;
+}
+
 .partner p {
     font-style: normal;
     font-weight: bold;
     line-height: 59px;
     text-align: center;
     filter: grayscale(40%);
-    transition: all .3s;
+    transform: scale(0);
 }
 
 .samsung {
@@ -531,7 +544,8 @@ section {
 .neef:hover,
 .lg:hover {
     filter: grayscale(0%);
-    transform: scale(1.1);
+    transform: scale(1.1) !important;
+    transition: all .3s !important;
 }
 
 

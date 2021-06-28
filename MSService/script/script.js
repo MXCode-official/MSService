@@ -154,18 +154,26 @@ const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         // если элемент появился
         if (entry.isIntersecting) {
-            // добавить ему CSS-класс
-            entry.target.classList.add('animation');
-            setTimeout(function() {
-                entry.target.style.opacity = 1;
-            }, 1000);
+            if (entry.target.classList[0] == "col-sm") {
+                entry.target.classList.add('animation');
+                setTimeout(function() {
+                    entry.target.style.opacity = 1;
+                }, 1000);
+            } else if (entry.target.classList[0] == "color-number" && done < 4) {
+                var value_item = entry.target.innerHTML;
+                smooth_ascending(entry.target, value_item, 5000, 0);
+                done++;
+            } else if (entry.target.classList.length == 1) {
+                entry.target.classList.add('load-partner');
+            }
+
         }
     });
 });
 
 const el = document.querySelectorAll('.col-sm');
 
-el.forEach(function(item, i) {
+el.forEach(function(item) {
     observer.observe(item);
 })
 
@@ -209,3 +217,38 @@ window.onscroll = function() {
         $(".img")[0].src = "images/user-white.svg"
     }
 };
+
+
+// animate numbers
+function smooth_ascending(item, value_item, time, c) {
+    var x = i = 0;
+    var y = 1000 / 70;
+    var j = parseInt(time / y);
+    y = time / j;
+    var k = value_item / j;
+
+    var int1 = setInterval(function() {
+        if (i < j + 1) {
+            x = k * i;
+            item.innerHTML = (x.toFixed(c));
+            i++;
+        } else {
+            item.innerHTML = value_item;
+            window.clearInterval(int1);
+        }
+    }, y);
+}
+
+var el_color = document.querySelectorAll('.color-number'),
+    done = 0;
+el_color.forEach(function(item) {
+    observer.observe(item);
+})
+
+// animate partners
+
+var el_color = document.querySelectorAll('.partner p'),
+    done = 0;
+el_color.forEach(function(item) {
+    observer.observe(item);
+})
