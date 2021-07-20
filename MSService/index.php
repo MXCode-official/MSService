@@ -1,17 +1,45 @@
 <?php
-    session_save_path();
     session_start();
+    if (empty($_SESSION["error"])){
+        $_SESSION["error"] = "OK";
+        $error = "OK";
+    } else{
+        $error = $_SESSION["error"];
+    }
 
-    error_reporting(0);
-    ini_set('session.use_cookies', 'On');
-    ini_set('session.use_trans_sid', 'Off');
-    ini_set('session.gc_maxlifetime',7200);
-    ini_set('session.cookie_lifetime',7200);
-    session_set_cookie_params(7200, '/');
+    // http://old.code.mu/books/php/auth/avtorizaciya-polzovatelej-cherez-kuki-na-php.html
+	if (empty($_SESSION['entered']) or $_SESSION['entered'] != 'OK') {
+		//Проверяем, не пустые ли нужные нам куки...
+		if ( !empty($_COOKIE['login']) and !empty($_COOKIE['key']) ) {
+			//Пишем логин и ключ из КУК в переменные (для удобства работы):
+			$login = $_COOKIE['login']; 
+			$key = $_COOKIE['key']; //ключ из кук (аналог пароля, в базе поле cookie)
+
+			/*
+				Формируем и отсылаем SQL запрос:
+				ВЫБРАТЬ ИЗ таблицы_users ГДЕ поле_логин = $login.
+			*/
+			$query = 'SELECT*FROM users WHERE login="'.$login.'" AND cookie="'.$key.'"';
+
+			//Ответ базы запишем в переменную $result:
+			$result = mysqli_fetch_assoc(mysqli_query($link, $query)); 
+
+			//Если база данных вернула не пустой ответ - значит пара логин-ключ_к_кукам подошла...
+			if (!empty($result)) {
+
+				//Пишем в сессию информацию о том, что мы авторизовались:
+				$_SESSION['entered'] = 'OK'; 
+
+				/*
+					Пишем в сессию логин и id пользователя
+					(их мы берем из переменной $user!):
+				*/
+				$_SESSION['id'] = $row['id']; 
+				$_SESSION['login'] = $row['login']; 
+			}
+		}
+	}
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -51,7 +79,7 @@
                 </a>
 
                 <?php
-                if (isset($_SESSION['entered']) && $_SESSION['entered'] == "OK"){
+                if (isset($_SESSION['entered']) and $_SESSION['entered'] == "OK"){
                     ?>
                     <div class="usr">
                         <div class="user">
@@ -113,7 +141,7 @@
                              </div>
                         </div>
                         <p class="warning text-danger"></p>
-                        <input class="know-me" type="checkbox">
+                        <input class="know-me" name="remember" type="checkbox" value='1'>
                         <p class="know-me-txt">Запомнить меня</p>
                         <button type="submit" class="log-in" onclick="return false;">
                             <p>Войти</p>
@@ -130,7 +158,7 @@
     </div>
 
     <main class="main">
-        <section class="banner full-screen" id="bunner" style="background: url('images/backimg.webp'); background-size: cover">
+        <section class="banner full-screen" id="bunner">
             <div class="container">
                 <div class="content">
                     <div class="row">
@@ -257,7 +285,7 @@
 
         <section class="obrat-svaz" id="obrat-svaz">
             <div class="container">
-                <h1 class="name">Обратная связь</h1>
+                <h1 class="name">Оставить заявку</h1>
                 <div class="toggle">
                     <p>по телефону</p>
                     <label class="checkbox-ios">

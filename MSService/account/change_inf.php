@@ -1,6 +1,6 @@
 <?php
-    session_save_path();
     session_start();
+
     $servername = "localhost";
     $username = "id14476277_maximka";
     $password_dbase = "22fkS^tDU]RD=Pe_";

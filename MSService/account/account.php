@@ -1,5 +1,4 @@
 <?php
-    session_save_path();
     session_start();
 ?>
 
@@ -13,6 +12,7 @@
 
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="style-account.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </head>
 <body>
     <div class="topheader">
@@ -104,7 +104,7 @@
                         <p class="warning text-danger"></p>
                         <input class="know-me" type="checkbox">
                         <p class="know-me-txt">Запомнить меня</p>
-                        <button type="submit" class="log-in" onclick="return false;">
+                        <button type="submit" class="log-in">
                             <p>Войти</p>
                         </button>
                         <p class="forgot">Забыли пароль?</p>
@@ -167,12 +167,18 @@
 
 
    <div class="windows">
-        <div class="img-screen d-none">
-            <form class="change-img" method="POST" action="change_inf.php" enctype="multipart/form-data">
-                <img class="img" src="../images/cloud-download.svg" alt="">
-                <input class="upload" type="file" name="image" hidden>
-                <input type="submit" name="submit_image" value="Upload">
-            </form>
+        <div class="upload-img d-none">
+            <div class="drag-area">
+                <div class="krst d-none drag-krest">
+                    <span class="krest"></span>
+                </div>
+                <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                <header>Перетащите, Чтобы Загрузить Файл</header>
+                <span>ИЛИ</span>
+                <button>Выберите Файл</button>
+                <input type="file" hidden>
+            </div>
+            <input class="submit" type="submit" value="Загрузить">
         </div>
     </div>
 

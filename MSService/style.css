@@ -6,6 +6,11 @@
 
 .main {
     overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.body {
+    overflow-y: hidden;
 }
 
 section {
@@ -194,6 +199,8 @@ section {
 .banner {
     width: 100%;
     height: 100vh;
+    background: url(images/backimg.png);
+    background-size: cover;
 }
 
 .back {
@@ -280,6 +287,10 @@ section {
     .phone {
         display: none;
     }
+    .head {
+        margin-left: calc(20% / 2);
+        margin-right: calc(20% / 2);
+    }
     .banner .text {
         margin-left: calc(20% / 2);
         margin-right: calc(20% / 2);
@@ -305,7 +316,7 @@ section {
     }
 }
 
-@media (max-height: 700px) {
+@media (max-height: 700px) and (max-width: 768px) {
     .ostav {
         margin-top: 20px;
         top: auto;
@@ -671,6 +682,7 @@ section {
     width: 90%;
     height: 40px;
     outline: 0;
+    border-radius: 0;
 }
 
 #name {
@@ -828,7 +840,7 @@ footer .number {
     position: absolute;
     width: 30px;
     height: 1px;
-    margin-top: 39.4px;
+    margin-top: 39px;
     margin-left: 30px;
     background-color: #c9c3e0;
 }
@@ -860,7 +872,7 @@ footer .number {
     position: absolute;
     width: 30px;
     height: 1px;
-    margin-top: 69.4px;
+    margin-top: 69px;
     margin-left: 30px;
     background-color: #c9c3e0;
 }
@@ -876,7 +888,7 @@ footer .number {
 }
 
 .know-me-txt {
-    margin-top: -25px;
+    margin-top: -19px;
     margin-left: 60px;
     color: white;
 }
@@ -947,6 +959,11 @@ footer .number {
     }
 }
 
+.usr {
+    display: flex;
+    justify-content: center;
+}
+
 .user {
     margin-top: 33px;
     cursor: pointer;
@@ -974,7 +991,7 @@ footer .number {
     border: 2px solid #A6A6A6;
     z-index: 3;
     border-radius: 10px;
-    margin-left: -9px;
+    top: 75px;
     width: 164px;
 }
 

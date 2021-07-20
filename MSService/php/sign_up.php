@@ -1,12 +1,5 @@
 <?php
-    session_save_path();
     session_start();
-    error_reporting(0);
-    ini_set('session.use_cookies', 'On');
-    ini_set('session.use_trans_sid', 'Off');
-    ini_set('session.gc_maxlifetime',7200);
-    ini_set('session.cookie_lifetime',7200);
-    session_set_cookie_params(7200, '/');
 
     $servername = "localhost";
     $username = "id14476277_maximka";
@@ -17,19 +10,36 @@
 
     $name = trim(urldecode(htmlspecialchars($_POST["name"])));
     $surname = trim(urldecode(htmlspecialchars($_POST["surname"])));
-    $login = trim(urldecode(htmlspecialchars($_POST["name"])));
+    $login = trim(urldecode(htmlspecialchars($_POST["login"])));
     $password = trim(urldecode(htmlspecialchars($_POST["password"])));
     $status = "client";
 
-    $information = "INSERT INTO users (id, name, surname, login, password, status) VALUES (NULL, '" . '' . $name . '' . "', '" . '' . $surname . '' . "', '" . '' . $login  . '' . "', '" . '' . $password  . '' . "', '" . '' . $status . '' . "')";
-    mysqli_query($conn, $information);
+    $query = 'SELECT login FROM users WHERE login="'.$login.'"';
+    $isLoginFree = mysqli_query($conn, $query);
+    $isLoginFree = mysqli_fetch_assoc($isLoginFree);
 
-    $_SESSION["entered"] = "OK";
-    $_SESSION["name"] = $name;
-    $_SESSION["surname"] = $surname;
-    $_SESSION["login"] = $login;
-    $_SESSION["status"] = "client";
-    $_SESSION["img"] = NULL;
-    $_SESSION["email"] = NULL;
-    $_SESSION["phone"] = NULL;
+    if (empty($isLoginFree)){
+        $result = mysqli_query($conn, 'INSERT INTO users (id, name, surname, login, password, status, image, email, phone, cookie) VALUES (NULL, "'.$name.'", "'.$surname.'", "'.$login.'", "'.md5($password).'", "'.$status.'", NULL, NULL, NULL, NULL)');
+        if ($result){
+            $_SESSION['error'] = "OK";
+            $error = $_SESSION['error'];
+            $_SESSION['entered'] = 'OK';
+            $_SESSION['name'] = $name;
+            $_SESSION['surname'] = $login;
+            $_SESSION['login'] = $login;
+            $_SESSION['status'] = 'client';
+            $_SESSION['img'] = NULL;
+            $_SESSION['email'] = NULL;
+            $_SESSION['phone'] = NULL;
+        } else{
+            $_SESSION['error'] = "ОШИБКА";
+            $error = $_SESSION['error'];
+            echo "ERROR";
+        }
+    } else{
+        $_SESSION['error'] = 'Логин уже занят';
+        $error = $_SESSION['error'];
+    }
+    echo $error;
+
 ?>

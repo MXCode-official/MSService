@@ -102,30 +102,38 @@ $(".sign_up").click(function() {
 $(document).ready(function() {
     $(".log-in").on("click", function() {
         if (($('.login').val() != '' && $('.password').val() != '') && ($(".account-login .row").attr('class').split(' ').length == 2)) {
-            fetch('php/login.php', {
-                method: 'POST', //Метод отправки
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
+            $.ajax({
+                type: 'POST', //Метод отправки
+                url: 'php/login.php',
+                data: $("#login_form").serialize(), //Получение данных
+                success: function(data) {
+                    if (data != "OK") {
+                        $(".warning").text(data); //=== Show Error Message==
+                    } else {
+                        location.reload();
+                    }
+
                 },
-                body: $("#login_form").serialize(), //Получение данных
-            }).then(
-                location.reload()
-            );
+            })
         } else if (($('.login').val() != '' && $('.password').val() != '' && $('.name-polz').val() != '' && $('.surname').val() != '') && ($(".account-login .row").attr('class').split(' ').length == 1)) {
-            fetch('php/sign_up.php', {
-                method: 'POST', //Метод отправки
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
+            $.ajax({
+                type: 'POST', //Метод отправки
+                url: 'php/sign_up.php',
+                data: $("#login_form").serialize(), //Получение данных
+                success: function(data) {
+                    if (data != "OK") {
+                        $(".warning").text(data); //=== Show Error Message==
+                    } else {
+                        location.reload();
+                    }
                 },
-                body: $("#login_form").serialize(), //Получение данных
-            }).then(
-                location.reload()
-            );
+            })
         } else {
             $(".warning").text("Заполнены не все поля");
         }
     });
 });
+
 $(".user").on("click", function() {
     $(".menu-user").toggleClass("d-none");
 })
@@ -143,7 +151,7 @@ $(".log-out").click(function() {
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
-    }).then(location.reload());
+    }).then(location.reload())
 })
 
 
@@ -192,14 +200,21 @@ if (window.pageYOffset > 0) {
     $(".topheader")[0].style.background = "white";
     $(".burger-white").addClass("d-none");
     $(".burger-black").removeClass("d-none");
-    $(".logo")[0].src = "images/logo.svg"
-    $(".img")[0].src = "images/user.svg"
+    $(".logo")[0].src = "images/logo.svg";
+    if ($(".img").length > 0) { $(".img")[0].src = "images/user.svg" };
+    if ($(".user-name").length > 0) {
+        $(".user-name")[0].style.color = "";
+    }
 } else {
     $(".topheader")[0].style.background = "";
     $(".burger-white").removeClass("d-none");
     $(".burger-black").addClass("d-none");
-    $(".logo")[0].src = "images/logo_white.svg"
-    $(".img")[0].src = "images/user-white.svg"
+    $(".logo")[0].src = "images/logo_white.svg";
+    if ($(".img").length > 0) { $(".img")[0].src = "images/user-white.svg" };
+    if ($(".user-name").length > 0) {
+        $(".user-name")[0].style.color = "white";
+    }
+
 }
 
 window.onscroll = function() {
@@ -207,14 +222,20 @@ window.onscroll = function() {
         $(".topheader")[0].style.background = "white";
         $(".burger-white").addClass("d-none");
         $(".burger-black").removeClass("d-none");
-        $(".logo")[0].src = "images/logo.svg"
-        $(".img")[0].src = "images/user.svg"
+        $(".logo")[0].src = "images/logo.svg";
+        if ($(".img").length > 0) { $(".img")[0].src = "images/user.svg" };
+        if ($(".user-name").length > 0) {
+            $(".user-name")[0].style.color = "";
+        }
     } else {
         $(".topheader")[0].style.background = "";
         $(".burger-white").removeClass("d-none");
         $(".burger-black").addClass("d-none");
-        $(".logo")[0].src = "images/logo_white.svg"
-        $(".img")[0].src = "images/user-white.svg"
+        $(".logo")[0].src = "images/logo_white.svg";
+        if ($(".img").length > 0) { $(".img")[0].src = "images/user-white.svg" };
+        if ($(".user-name").length > 0) {
+            $(".user-name")[0].style.color = "white";
+        }
     }
 };
 

@@ -268,17 +268,6 @@
     max-width: 280px;
 }
 
-.img-screen {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 65vw;
-    background: white;
-    height: 35vw;
-    z-index: 2;
-}
-
 .content {
     padding-top: 75px;
     padding-left: 40px;
@@ -311,8 +300,86 @@
 
 /* windows */
 
-.change-img .img {
-    background: url(../images/cloud-download.svg);
-    background-size: cover;
-    width: 200px;
+.upload-img {
+    position: absolute;
+    height: 600px;
+    width: 800px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #5256ad;
+    z-index: 4;
+}
+
+.drag-area {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 2px dashed #fff;
+    height: 400px;
+    width: 600px;
+    left: 50%;
+    top: 52%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    -webkit-box-shadow: 4px 4px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 4px 4px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 4px 4px 5px 0px rgba(50, 50, 50, 0.75);
+    z-index: 5;
+}
+
+.drag-area.active {
+    border: 2px solid #fff;
+}
+
+.drag-area .icon {
+    font-size: 100px;
+    color: #fff;
+}
+
+.drag-area header {
+    font-size: 30px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.drag-area span {
+    font-size: 25px;
+    font-weight: 500;
+    color: #fff;
+    margin: 10px 0 15px 0;
+}
+
+.drag-area button {
+    padding: 10px 25px;
+    font-size: 20px;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    background: #fff;
+    color: #5256ad;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.drag-area img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.submit {
+    position: absolute;
+    left: 50%;
+    bottom: 2%;
+    transform: translate(-50%, 0);
+}
+
+.drag-area .krst {
+    right: 10px;
+    top: 0;
+    left: auto;
 }
