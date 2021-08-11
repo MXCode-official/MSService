@@ -1,5 +1,3 @@
-$("div")[$("div").length - 1].innerHTML = ""
-
 // Menu
 $(".burger").click(function() {
     $(".menu").addClass("active");
@@ -22,6 +20,25 @@ $(".krst").click(function() {
 })
 
 // END MENU
+
+// Account
+$('.account').on('click', function() {
+    $(".account-login").removeClass('d-none');
+    $('body').addClass('overflow-hidden');
+});
+
+$(document).on('mouseup', function(e) {
+    let s = $('.account-login');
+    if (!s.is(e.target) && s.has(e.target).length === 0) {
+        s.addClass('d-none');
+        $('body').removeClass('overflow-hidden');
+    } else {
+        $('body').addClass('overflow-hidden');
+    }
+});
+
+// End Account
+
 $(".user").on("click", function() {
     $(".menu-user").toggleClass("d-none");
 })
@@ -44,23 +61,88 @@ $(document).on('mouseup', function(e) {
     }
 });
 
+// Login
+
+$(".sign_up").click(function() {
+    if ($(".account-login .name").text() == 'Войти') {
+        $(".account-login .name").text('Авторизоваться');
+        $(".account-login .sign_up").text('Уже есть аккаунт');
+    } else {
+        $(".account-login .name").text('Войти');
+        $(".account-login .sign_up").text('Новый пользователь');
+    }
+
+    $(".account-login .row").toggleClass("d-none")
+})
+
+// php
+
+$(document).ready(function() {
+    $(".log-in").on("click", function() {
+        if (($('.login').val() != '' && $('.password').val() != '') && ($(".account-login .row").attr('class').split(' ').length == 2)) {
+            $.ajax({
+                type: 'POST', //Метод отправки
+                url: '../php/login.php',
+                data: $("#login_form").serialize(), // Получение данных
+                success: function(data) {
+                    if (data != "OK") {
+                        $(".warning").text(data); // Show Error Message
+                    } else {
+                        // location.reload();
+                    }
+
+                },
+            })
+        } else if (($('.login').val() != '' && $('.password').val() != '' && $('.name-polz').val() != '' && $('.surname').val() != '') && ($(".account-login .row").attr('class').split(' ').length == 1)) {
+            $.ajax({
+                type: 'POST', //Метод отправки
+                url: '../php/sign_up.php',
+                data: $("#login_form").serialize(), //Получение данных
+                success: function(data) {
+                    if (data != "OK") {
+                        $(".warning").text(data); // Show Error Message
+                    } else {
+                        // location.reload();
+                    }
+                },
+            })
+        } else {
+            $(".warning").text("Заполнены не все поля");
+        }
+    });
+});
+
+$(".user").on("click", function() {
+    $(".menu-user").toggleClass("d-none");
+})
+
+$(document).on('mouseup', function(e) {
+    let s = $('.menu-user');
+    if (!s.is(e.target) && s.has(e.target).length === 0) {
+        s.addClass('d-none');
+    }
+});
+
 $(".log-out").click(function() {
     fetch('../php/log-out.php', {
         method: 'POST', //Метод отправки
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
-    }).then($(location).attr('href', 'https://maximkadoublemaximka2.000webhostapp.com'));
+    }).then(location.reload())
 })
+
 
 // upload img   https://www.codingnepalweb.com/drag-drop-file-upload-feature-javascript/
 
 //selecting all required elements
-const dropArea = document.querySelector(".drag-area"),
-    dragText = dropArea.querySelector("header"),
-    button = dropArea.querySelector("button"),
-    input = dropArea.querySelector("input");
+dropArea = document.querySelector(".drag-area");
+dragText = dropArea.querySelector("header");
+button = dropArea.querySelector("button");
+input = dropArea.querySelector("input");
+
 let file; //this is a global variable and we'll use it inside multiple functions
+
 button.onclick = () => {
     input.click(); //if user click on the button then the input also clicked
 }
@@ -74,7 +156,7 @@ input.addEventListener("change", function() {
 dropArea.addEventListener("dragover", (event) => {
     event.preventDefault(); //preventing from default behaviour
     dropArea.classList.add("active");
-    dragText.textContent = "Отпустите, чтобы Загрузить Изображение!";
+    dragText.textContent = "Отпустите, Чтобы Загрузить Файл!";
 });
 //If user leave dragged File from DropArea
 dropArea.addEventListener("dragleave", () => {
@@ -88,6 +170,13 @@ dropArea.addEventListener("drop", (event) => {
     file = event.dataTransfer.files[0];
     showFile(); //calling function
 });
+
+$(".drag-krest").on("click", function() {
+    dropArea = document.querySelector(".drag-area");
+    imgTag = `<div class="krst d-none drag-krest"><span class="krest"></span></div><div class="icon"><i class="fas fa-cloud-upload-alt"></i></div><header>Перетащите, Чтобы Загрузить Файл</header><span>ИЛИ</span><button>Выберите Файл</button><input type="file" hidden>`;
+    dropArea.innerHTML = imgTag;
+    $(".krst").addClass("d-none");
+})
 
 function showFile() {
     let fileType = file.type; //getting selected file type
@@ -103,25 +192,8 @@ function showFile() {
         }
         fileReader.readAsDataURL(file);
     } else {
-        alert("Этот файл не Изображение!");
+        alert("Этот файл не является Изображением!");
         dropArea.classList.remove("active");
         dragText.textContent = "Перетащите, Чтобы Загрузить Файл";
     }
 }
-let drag_content = `<div class="krst d-none drag-krest">
-<span class="krest"></span>
-</div>
-<div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
-<header>Перетащите, Чтобы Загрузить Файл</header>
-<span>ИЛИ</span>
-<button>Выберите Файл</button>
-<input type="file" hidden>`;
-
-$(".drag-krest").click(function() {
-    dropArea.innerHTML = drag_content;
-    $(".drag-area .krst").addClass("d-none");
-    const dropArea = document.querySelector(".drag-area"),
-        dragText = dropArea.querySelector("header"),
-        button = dropArea.querySelector("button"),
-        input = dropArea.querySelector("input");
-})
