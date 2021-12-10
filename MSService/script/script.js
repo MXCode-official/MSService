@@ -21,38 +21,6 @@ $(".krst").click(function() {
 
 // END MENU
 
-// Obrat Svaz
-$(".list li").click(function() {
-    $('#tech').val(this.innerText);
-});
-
-$(".checkbox-ios-switch").click(function() {
-    $(".ph").toggleClass("d-none");
-    $(".em").toggleClass("d-none");
-})
-
-// End Obrat Svaz
-
-
-
-// Account
-$('.account').on('click', function() {
-    $(".account-login").removeClass('d-none');
-    $('body').addClass('overflow-hidden');
-});
-
-$(document).on('mouseup', function(e) {
-    let s = $('.account-login');
-    if (!s.is(e.target) && s.has(e.target).length === 0) {
-        s.addClass('d-none');
-        $('body').removeClass('overflow-hidden');
-    } else {
-        $('body').addClass('overflow-hidden');
-    }
-});
-
-// End Account
-
 
 // animate scroll
 $(".menu ul").on("click", "li", function(event) {
@@ -83,78 +51,6 @@ $("footer").on("click", "a", function(event) {
     $('body,html').animate({ scrollTop: top }, 1000);
 });
 
-// Login
-
-$(".sign_up").click(function() {
-    if ($(".account-login .name").text() == 'Войти') {
-        $(".account-login .name").text('Авторизоваться');
-        $(".account-login .sign_up").text('Уже есть аккаунт');
-    } else {
-        $(".account-login .name").text('Войти');
-        $(".account-login .sign_up").text('Новый пользователь');
-    }
-
-    $(".account-login .row").toggleClass("d-none")
-})
-
-// php
-
-$(document).ready(function() {
-    $(".log-in").on("click", function() {
-        if (($('.login').val() != '' && $('.password').val() != '') && ($(".account-login .row").attr('class').split(' ').length == 2)) {
-            $.ajax({
-                type: 'POST', //Метод отправки
-                url: 'php/login.php',
-                data: $("#login_form").serialize(), //Получение данных
-                success: function(data) {
-                    if (data != "OK") {
-                        $(".warning").text(data); //=== Show Error Message==
-                    } else {
-                        location.reload();
-                    }
-
-                },
-            })
-        } else if (($('.login').val() != '' && $('.password').val() != '' && $('.name-polz').val() != '' && $('.surname').val() != '') && ($(".account-login .row").attr('class').split(' ').length == 1)) {
-            $.ajax({
-                type: 'POST', //Метод отправки
-                url: 'php/sign_up.php',
-                data: $("#login_form").serialize(), //Получение данных
-                success: function(data) {
-                    if (data != "OK") {
-                        $(".warning").text(data); //=== Show Error Message==
-                    } else {
-                        location.reload();
-                    }
-                },
-            })
-        } else {
-            $(".warning").text("Заполнены не все поля");
-        }
-    });
-});
-
-$(".user").on("click", function() {
-    $(".menu-user").toggleClass("d-none");
-})
-
-$(document).on('mouseup', function(e) {
-    let s = $('.menu-user');
-    if (!s.is(e.target) && s.has(e.target).length === 0) {
-        s.addClass('d-none');
-    }
-});
-
-$(".log-out").click(function() {
-    fetch('php/log-out.php', {
-        method: 'POST', //Метод отправки
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-    }).then(location.reload())
-})
-
-
 // animation
 
 const observer = new IntersectionObserver(entries => {
@@ -167,7 +63,7 @@ const observer = new IntersectionObserver(entries => {
                 setTimeout(function() {
                     entry.target.style.opacity = 1;
                 }, 1000);
-            } else if (entry.target.classList[0] == "color-number" && done < 4) {
+            } else if (entry.target.classList[0] == "color-number" && done < 5) {
                 var value_item = entry.target.innerHTML;
                 smooth_ascending(entry.target, value_item, 5000, 0);
                 done++;

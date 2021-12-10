@@ -45,6 +45,12 @@ section {
     transform: translate(-50%, 0);
 }
 
+@media (max-width: 550px) {
+    .logo {
+        display: none;
+    }
+}
+
 .burger {
     height: 32px;
     width: 50px;
@@ -167,23 +173,6 @@ section {
     transition: transform .3s, top .3s;
 }
 
-.account {
-    margin-top: 26px;
-    cursor: pointer;
-}
-
-.account-login {
-    position: absolute;
-    left: 50%;
-    top: 50vh;
-    transform: translate(-50%, -50%);
-    height: 615px;
-    width: 548px;
-    background: url(images/Frame1.png);
-    border-radius: 15px;
-    z-index: 2;
-}
-
 .border-line {
     position: absolute;
     width: 100%;
@@ -198,8 +187,7 @@ section {
 
 .banner {
     width: 100%;
-    height: 100vh;
-    background: url(images/backimg.png);
+    background: url(https://img.freepik.com/free-photo/close-up-hardware-component-background_23-2148882663.jpg?size=1920&ext=jpg);
     background-size: cover;
 }
 
@@ -305,7 +293,7 @@ section {
         width: 80% !important;
         height: 65px;
         top: 470px;
-        left: 50%;
+        margin-left: 50%;
         transform: translate(-50%, 0);
         margin-top: 20px;
     }
@@ -313,6 +301,12 @@ section {
         font-size: 24px;
         line-height: 28px;
         text-align: center;
+    }
+}
+
+@media (max-width: 1100px) and (max-height: 850px) {
+    .ostav {
+        position: unset !important;
     }
 }
 
@@ -664,6 +658,24 @@ section {
     margin: 40px 0;
 }
 
+.obrat-svaz .content {
+    display: flex;
+    justify-content: center;
+}
+
+.obrat-svaz .content .col-md-3 {
+    margin: 20px;
+    width: 220px;
+    height: 170px;
+}
+
+.obrat-svaz .content .col-md-3 a {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .obrat-svaz form p {
     font-size: 25px;
     font-weight: 700;
@@ -687,23 +699,6 @@ section {
 
 #name {
     margin-bottom: 30px;
-}
-
-.list {
-    background-color: #5F2EEA;
-    transform: scaleY(0);
-    transform-origin: 0 0;
-    width: 90%;
-    transition: all .3s;
-    color: whitesmoke;
-    list-style-type: none;
-    font-size: 20px;
-    cursor: pointer;
-    line-height: 35px;
-}
-
-.second:hover .list {
-    transform: scaleY(1);
 }
 
 @media (max-width:576px) {
@@ -776,255 +771,58 @@ footer .number {
     color: white;
 }
 
-
-/*Name surname*/
-
-.account-login .row {
-    margin-left: 15px;
-    margin-right: 15px;
-    margin-bottom: 30px;
+#insta {
+    /* https://stackoverflow.com/questions/37751375/instagram-new-logo-css-background */
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 2%, #fd5949 35%, #d6249f 50%, #285AEB 85%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 140px;
+    transition: 0.5s;
 }
 
-.name-polz {
-    width: 100% !important;
-    outline: 0;
-    border: 0;
-    background-color: transparent;
-    color: white;
+#insta:hover {
+    font-size: 175px;
 }
 
-.name-polz::placeholder {
-    color: white;
+#vk {
+    /* https://stackoverflow.com/questions/37751375/instagram-new-logo-css-background */
+    background: #3f8ae0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 140px;
+    transition: 0.5s;
 }
 
-.surname {
-    width: 100% !important;
-    outline: 0;
-    border: 0;
-    background-color: transparent;
-    color: white;
+#vk:hover {
+    font-size: 175px;
 }
 
-.surname::placeholder {
-    color: white;
+#telegram {
+    /* https://stackoverflow.com/questions/37751375/instagram-new-logo-css-background */
+    background: #3f8ae0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 140px;
+    transition: 0.5s;
 }
 
-
-/* Account */
-
-.account-login .name {
-    color: white;
-    margin-top: 50px;
+#telegram:hover {
+    font-size: 175px;
 }
 
-.login {
-    width: calc(91% - 41px) !important;
-    margin-left: 60px;
-    outline: 0;
-    border: 0;
-    background-color: transparent;
-    color: white;
+#phone {
+    /* https://stackoverflow.com/questions/37751375/instagram-new-logo-css-background */
+    background: #7af766;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 140px;
+    transition: 0.5s;
 }
 
-.login::placeholder {
-    color: white;
-}
-
-.svg-nm {
-    position: absolute;
-    margin-top: 11px;
-    margin-left: 31.5px;
-}
-
-.border-ln-1 {
-    position: absolute;
-    width: 30px;
-    height: 1px;
-    margin-top: 39px;
-    margin-left: 30px;
-    background-color: #c9c3e0;
-}
-
-
-/**/
-
-.password {
-    width: calc(91% - 41px) !important;
-    margin-top: 30px;
-    margin-left: 60px;
-    outline: 0;
-    border: 0;
-    background-color: transparent;
-    color: white;
-}
-
-.password::placeholder {
-    color: white;
-}
-
-.svg-ps {
-    position: absolute;
-    margin-top: 41px;
-    margin-left: 31.5px;
-}
-
-.border-ln-2 {
-    position: absolute;
-    width: 30px;
-    height: 1px;
-    margin-top: 69px;
-    margin-left: 30px;
-    background-color: #c9c3e0;
-}
-
-.warning {
-    text-align: center;
-    margin-bottom: 5px;
-    margin-top: -20px;
-}
-
-.know-me {
-    margin-left: 35px;
-}
-
-.know-me-txt {
-    margin-top: -19px;
-    margin-left: 60px;
-    color: white;
-}
-
-.log-in {
-    display: flex;
-    width: 184px;
-    height: 46px;
-    border-radius: 25px;
-    background-color: white;
-    margin-top: 30px;
-    margin-left: 50%;
-    transform: translate(-50%, 0);
-}
-
-.log-in p {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    font-style: normal;
-    font-weight: 620;
-    font-size: 20px;
-    text-align: center;
-    color: #000000;
-}
-
-.forgot {
-    position: absolute;
-    left: 50%;
-    bottom: 30px;
-    transform: translate(-50%, 0);
-    color: #FFFFFF;
-    cursor: pointer;
-}
-
-.sign_up {
-    position: absolute;
-    left: 50%;
-    bottom: 3px;
-    transform: translate(-50%, 0);
-    color: #FFFFFF;
-    cursor: pointer;
-}
-
-@media (max-width: 768px) {
-    .logo {
-        display: none;
-    }
-}
-
-@media (max-width: 575px) {
-    .account-login {
-        width: 90vw;
-        height: 90vh;
-    }
-    .forgot {
-        font-size: 14px;
-    }
-    .sign_up {
-        font-size: 14px;
-    }
-    .menu {
-        width: 100%;
-    }
-    .krst {
-        left: 85%
-    }
-}
-
-.usr {
-    display: flex;
-    justify-content: center;
-}
-
-.user {
-    margin-top: 33px;
-    cursor: pointer;
-}
-
-.user-name {
-    font-weight: 500;
-    font-size: 25px;
-    line-height: 29px;
-    color: #000000;
-}
-
-.user-img {
-    margin-left: 10px !important;
-    margin-top: -9px;
-    width: 50px;
-    height: 50px;
-    margin-right: 15px;
-    border-radius: 50%;
-}
-
-.menu-user {
-    position: absolute;
-    background-color: #FFFFFF;
-    border: 2px solid #A6A6A6;
-    z-index: 3;
-    border-radius: 10px;
-    top: 75px;
-    width: 164px;
-}
-
-.log-out {
-    color: #ED1D25;
-    padding-top: 10px;
-    margin-bottom: 0;
-}
-
-.menu-user ul {
-    list-style-type: none;
-    padding-left: 0;
-    margin-bottom: 7px;
-    font-size: 19px;
-    line-height: 27px;
-}
-
-.menu-user li {
-    cursor: pointer;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.menu-user li a {
-    text-decoration: none;
-    color: black;
-}
-
-.menu-user li p:nth-child(1) {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: black;
+#phone:hover {
+    font-size: 175px;
 }
