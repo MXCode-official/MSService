@@ -1,4 +1,4 @@
-<img src="https://github.com/MXCode-official/MSService/blob/69c98f33b8224db2f6fe32dc3222c9eb48308f95/MSService/readme/top-wave.svg">
+<img src="https://github.com/MXCode-official/MSService/blob/5fb25d1b2079393d988e1ca9405b3ec4425889c7/readme/top-wave.svg">
 
 # *[MSService](https://ms-service.000webhostapp.com/)*
 
