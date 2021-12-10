@@ -25,7 +25,7 @@
 
 Необходим для иконок в блоке "Связаться с нами"
 
-![[947DE68D-AA88-44E8-A751-CC8BF0354A83.jpeg]]
+<img src="https://github.com/MXCode-official/MSService/blob/9d859e40dad66bd467dca5798e83977076df75fb/MSService/readme/FEECA7B1-E165-4274-BCA6-557932B00704.jpeg">
 
 ### *[Vanilla tilt](https://micku7zu.github.io/vanilla-tilt.js/)*
 
@@ -35,4 +35,4 @@
 
 Репозиторий создал 3D эффект элементов в блоке "Наши преимущества"
 
-![[958BAE06-9E9E-4BA1-A9B6-47065898C87B.jpeg]]
+<img src="https://github.com/MXCode-official/MSService/blob/9d859e40dad66bd467dca5798e83977076df75fb/MSService/readme/FEECA7B1-E165-4274-BCA6-557932B00704.jpeg">
