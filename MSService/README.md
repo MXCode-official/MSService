@@ -35,4 +35,4 @@
 
 Репозиторий создал 3D эффект элементов в блоке "Наши преимущества"
 
-<iframe width="360" height="202" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameBorder="0" src="https://imgflip.com/embed/5xdqzp">
+![Alt text](https://letcodewithme.000webhostapp.com/3d-effect.gif) / ![](https://letcodewithme.000webhostapp.com/3d-effect.gif)
