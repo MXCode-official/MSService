@@ -1,4 +1,4 @@
-<img src="https://github.com/MXCode-official/MSService/blob/9f8d4de138033731549ceb5a80f172b6d681ec00/readme/top-wave.svg">
+<img src="https://raw.githubusercontent.com/MXCode-official/MSService/7aea45153573df076c40f0d7e0f7700fddddffc0/readme/top-wave.svg">
 
 # *[MSService](https://ms-service.000webhostapp.com/)*
 
@@ -37,4 +37,4 @@
 
 <img width="60%" src="https://github.com/MXCode-official/MSService/blob/6b1e3d5477720e4d981f978e02bc758bb384d1f9/MSService/readme/3d.gif?raw=true">
 
-<img src="https://github.com/MXCode-official/MSService/blob/9f8d4de138033731549ceb5a80f172b6d681ec00/readme/bottom-wave.svg">
+<img src="https://raw.githubusercontent.com/MXCode-official/MSService/9f8d4de138033731549ceb5a80f172b6d681ec00/readme/bottom-wave.svg">
