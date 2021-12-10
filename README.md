@@ -36,3 +36,5 @@
 Репозиторий создал 3D эффект элементов в блоке "Наши преимущества"
 
 <img width="60%" src="https://github.com/MXCode-official/MSService/blob/6b1e3d5477720e4d981f978e02bc758bb384d1f9/MSService/readme/3d.gif">
+
+<img src="https://github.com/MXCode-official/MSService/blob/a00c5dd305073518456bade7a340d3a0e7182337/readme/bottom-wave.svg">
