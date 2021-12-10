@@ -1,229 +1,38 @@
-<svg style="width:100%; height:10%, top:0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#0099ff" fill-opacity="1" d="M0,160L80,176C160,192,320,224,480,208C640,192,800,128,960,112C1120,96,1280,128,1360,144L1440,160L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path></svg>
+<img src="https://raw.githubusercontent.com/MXCode-official/MSService/main/MSService/readme/top-wave.svg?token=AMUFKPGWUHFMZUSEBDGMBNDBWNOFQ">
 
-# Master Service сайт
+# *[MSService](ms-service.000webhostapp.com)*
 
 Сайт предназначен:
 - Предоствить потенциальному клиенту всю необходимую информацию о компании
 - Увеличить доход предпринимателя путём привлечение новых клиентов из сети интернет
-- Validate proof
-- Get records details
+- И ещё чего-то
 
-## Installation
+## Используемые технологии
 
-The SDK can be installed with PIP as follows:
+### *[Bootstrap](https://getbootstrap.com/)*
 
-```shell
-$ pip install bloock
+```html
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 ```
 
-## Usage
+Был включён в проект как основа дизайна сайта
 
-The following examples summarize how to access the different functionalities available:
+### *[Font awesome](https://fontawesome.com/)*
 
-### Prepare data
-
-In order to interact with the SDK data must be processed through the Record module.
-
-There are several ways to generate a Record:
-
-```python
-from bloock import Record
-
-# From a dict
-d = {'data': 'Example Data'}
-Record.fromDict(d)
-
-# From a hash string (hex encoded 64-chars long string with no "0x" prefix)
-Record.fromHash('5ac706bdef87529b22c08646b74cb98baf310a46bd21ee420814b04c71fa42b1')
-
-# From a hex encoded string (with no "0x" prefix)
-Record.fromHex('0123456789abcdef')
-
-# From a string
-Record.fromString('Example Data')
-
-# From a bytes
-Record.fromBytes(b'Example Data')
-
-# Retrieve the computed record
-Record.fromBytes(b'Example Data').getHash()
+```html
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
 ```
 
-### Send records
+Необходим для иконок в блоке "Связаться с нами"
 
-This example shows how to send data to Bloock.
+![[947DE68D-AA88-44E8-A751-CC8BF0354A83.jpeg]]
 
-```python
-from bloock import BloockClient, Record, BloockException
-import os
+### *[Vanilla tilt](https://micku7zu.github.io/vanilla-tilt.js/)*
 
-api_key = os.getenv("BLOOCK_APIKEY", default='api_key')
-client = BloockClient(api_key)
-
-records = [Record.fromString('Example Data 1')]
-
-try:
-    send_receipt = client.sendRecords(records)
-    print('sendReceipt status: ', send_receipt[0].status)
-except BloockException:
-	raise
+```html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 ```
 
-### Get records status
+Репозиторий создал 3D эффект элементов в блоке "Наши преимущества"
 
-This example shows how to get all the details and status of records:
-
-```python
-from bloock import BloockClient, Record, BloockException
-import os
-
-api_key = os.getenv("BLOOCK_APIKEY", default='apiKey')
-client = BloockClient(api_key)
-
-records = [
-    Record.fromString('Example Data 1'),
-    Record.fromString('Example Data 2'),
-    Record.fromString('Example Data 3')
-]
-
-try:
-    m_receipts = client.getRecords(records)
-    for mr in m_receipts:
-        print("RecordReceipt: {{anchor_id: {}, client:{}, record:{}, status:{}}}".format(
-            mr.anchor, mr.client, mr.record, mr.status))
-except BloockException:
-	raise
-```
-
-
-### Wait for records to process
-
-This example shows how to wait for a record to be processed by Bloock after sending it:
-
-```python
-from bloock import BloockClient, Record, BloockException
-import os
-
-api_key = os.getenv("BLOOCK_APIKEY", default='api_key')
-client = BloockClient(api_key)
-records = [Record.fromString('Example Data 1')]
-
-try:
-    send_receipt = client.sendRecords(records)
-    anchor = client.waitAnchor(send_receipt[0].anchor)
-    print("Anchor: {{id: {}, blocks:{}, network:{}, root: {}, status:{}}}".format(
-        anchor.id, anchor.block_roots, anchor.networks, anchor.root, anchor.status))
-except BloockException:
-	raise
-```
-
-### Get and validate records proof
-
-There are basically two ways to validate some records had been pushed to the blockchain: combining calls to *getProof* and *verifyProof*, or calling directly *verifyRecords*.
-
-The method *getProof* will, by default, return an integrity proof of the requested data in any of the compatible blockchain networks. It is possible to specify in which network and from which date it must, at least, be valid using the optional parameters *network* and *date*:
-
-```python
-from bloock import BloockClient, Record, BloockException, Network
-import os, time
-
-api_key = os.getenv("BLOOCK_APIKEY", default='apiKey')
-
-client = BloockClient(api_key)
-
-# records already sent and anchored by Bloock 
-records = [
-    Record.fromString('Example Data 1'),
-    Record.fromString('Example Data 2'),
-    Record.fromString('Example Data 3')
-]
-
-try:
-    proof = client.getProof(records, network = Network.BLOOCK_CHAIN, date = time.time())
-    timestamp = client.verifyProof(proof)   
-    print('When were our records sent to Bloockchain? : {}'.format(0<timestamp))
-except BloockException:
-    raise
-```
-
-For ease of use, there is also the wrapper method *verifyRecords* that will do the same as the two calls before, but this time around will only check proofs sent to Ethereum mainnet be default:
-
-```python
-from bloock import BloockClient, Record, BloockException
-import os
-
-api_key = os.getenv("BLOOCK_APIKEY", default='apiKey')
-
-client = BloockClient(api_key)
-
-# records already sentand anchored by Bloock 
-records = [
-    Record.fromString('Example Data 1'),
-    Record.fromString('Example Data 2'),
-    Record.fromString('Example Data 3')
-]
-
-try:
-    timestamp = client.verifyRecords(records)
-    print('When were our records sent to Ethereum mainnet? : {}'.format(0<timestamp))
-except BloockException:
-    raise
-```
-
-Keep in mind despite having Ethereum mainnet and Rinkeby available, only Bloockchain is
-usable when working with test api keys. 
-
-
-
-### Full example
-
-This snippet shows a complete data cycle including: write, record status polling, proof retrieval and validation.
-
-```python
-#!/usr/bin/env python3
-
-from bloock import BloockClient, Record, BloockException
-import os, random
-
-
-def randHex(l):
-    ''' Helper function to generate a random record.'''
-    val = [int(random.uniform(0, 256)) for x in range(0, l)]
-    result = ''
-    for n in val:
-        result += ('%x' % n)
-    return result
-
-
-def main():
-    api_key = os.getenv("API_KEY", default='apiKey')
-
-    client = BloockClient(api_key)
-
-    try:
-        records = [Record.fromString(randHex(64))]
-        send_receipt = client.sendRecords(records)
-        print('Record sent to Bloock. Waiting for anchor to be processed ...')
-        client.waitAnchor(send_receipt[0].anchor)
-
-        print('Anchor retrieved. Getting Record proof ...')
-        proof = client.getProof(records)
-
-        print('Verifying proof ...')
-        
-        # verifyProof's optional network parameter must be set to Network.BLOOCK_CHAIN when working with test api keys:
-        timestamp = client.verifyProof(proof)
-
-        if timestamp <= 0:
-            print('Data not registered on the blockchain.')
-
-        print('Success!')
-
-    except BloockException as e:
-        print(e)
-
-
-if __name__ == "__main__":
-    # execute only if run as a script
-    main()
-```
+![[958BAE06-9E9E-4BA1-A9B6-47065898C87B.jpeg]]
